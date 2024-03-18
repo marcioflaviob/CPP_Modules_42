@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:27:20 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/18 00:18:47 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/03/18 15:21:48 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class PhoneBook {
 
 public:
 	Contact contacts[8];
+	int		oldest_index;
 
 	PhoneBook(void);
 	~PhoneBook(void);

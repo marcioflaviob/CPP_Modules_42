@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 22:27:17 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/18 01:01:05 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/03/18 15:22:49 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main(void) {
 	std::string input;
 	
 	std::cout << "Inform your command: " << std::endl;
+	std::cout << ">>";
 	std::getline(std::cin, input);
 	std::cout << std::endl;
 	while (input != "EXIT") {
@@ -46,6 +47,7 @@ int main(void) {
 		std::cout << std::endl;
 		
 		std::cout << "Inform your command: " << std::endl;
+		std::cout << ">>";
 		std::getline(std::cin, input);
 		std::cout << std::endl;
 		
