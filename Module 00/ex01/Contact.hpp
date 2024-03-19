@@ -6,14 +6,14 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:11:25 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/18 00:25:52 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/03/19 16:58:57 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_H
 # define CONTACT_H
 
-#include <string>
+# include <string>
 
 class Contact {
 
