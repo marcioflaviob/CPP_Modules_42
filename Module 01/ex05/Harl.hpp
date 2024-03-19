@@ -1,38 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/19 14:53:50 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/19 17:44:10 by mbrandao         ###   ########.fr       */
+/*   Created: 2024/03/19 21:57:12 by mbrandao          #+#    #+#             */
+/*   Updated: 2024/03/19 23:33:56 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#ifndef HARL_L
+# define HARL_L
 
-# include <string>
 # include <iostream>
 
-class Zombie {
+# define DEFAULT "\e[0;97m"
+# define GREEN "\e[0;92m"
+# define YELLOW "\e[0;93m"
+# define ORANGE "\e[0;91m"
+# define RED "\e[0;31m"
+
+
+class Harl {
 
 private:
 
-	std::string name;
+	void debug( void );
+	void info( void );
+	void warning( void );
+	void error( void );
 
 public:
 
-	Zombie(std::string name);
-	Zombie( void );
-	~Zombie( void );
+	Harl(void);
+	~Harl(void);
 
-	void	announce( void );
-	void	setName( std::string name );
+	void complain( std::string level );
 
 };
 
-Zombie* zombieHorde( int N, std::string name );
+typedef void (Harl:: * function_t) ( void );
 
 #endif

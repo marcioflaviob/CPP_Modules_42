@@ -1,4 +1,4 @@
-NAME		= MyPB
+NAME		= Violence
 	
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -6,11 +6,11 @@ RM			= rm -rf
 
 OBJDIR = .objFiles
 
-FILES		= MyPB Contact PhoneBook
+FILES		= HumanA HumanB Weapon main
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= Contact.hpp PhoneBook.hpp
+HEADER		= Weapon.hpp HumanA.hpp HumanB.hpp
 
 #Colors:
 GREEN		=	\e[92;5;118m

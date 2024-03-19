@@ -19,7 +19,7 @@ GRAY		=	\e[33;2;37m
 RESET		=	\e[0m
 CURSIVE		=	\e[33;3m
 
-.PHONY: all clean fclean re bonus norm
+.PHONY: all clean fclean re
 
 all: $(NAME)
 

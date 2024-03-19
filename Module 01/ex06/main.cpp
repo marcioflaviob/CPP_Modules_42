@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/19 14:53:50 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/19 17:44:10 by mbrandao         ###   ########.fr       */
+/*   Created: 2024/03/19 22:18:00 by mbrandao          #+#    #+#             */
+/*   Updated: 2024/03/19 23:52:56 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#include "Harl.hpp"
 
-# include <string>
-# include <iostream>
-
-class Zombie {
-
-private:
-
-	std::string name;
-
-public:
-
-	Zombie(std::string name);
-	Zombie( void );
-	~Zombie( void );
-
-	void	announce( void );
-	void	setName( std::string name );
-
-};
-
-Zombie* zombieHorde( int N, std::string name );
-
-#endif
+int main (int argc, char **argv) {
+	if (argc != 2) {
+		std::cout << "Usage: ./harlFilter [LOG LEVEL]" << std::endl;
+		std::cout << "The available levels are DEBUG, INFO, WARNING and ERROR" << std::endl;
+		return 0;
+	}
+	
+	Harl harl;
+	harl.complain(argv[1]);
+}
