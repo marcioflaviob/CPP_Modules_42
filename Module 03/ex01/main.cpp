@@ -5,30 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 00:03:19 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/20 18:01:31 by mbrandao         ###   ########.fr       */
+/*   Created: 2024/03/20 21:17:39 by mbrandao          #+#    #+#             */
+/*   Updated: 2024/03/20 22:19:29 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main (void) {
-	Fixed a;
-	Fixed const b( 10 );
-	Fixed const c( 42.42f );
-	Fixed const d( b );
+	ClapTrap pierre("Pierre");
+	ScavTrap bastien("Bastien");
 
-	a = Fixed( 1234.4321f );
+	pierre.attack("Bastien");
+	bastien.takeDamage(0);
+	bastien.attack("Pierre");
+	pierre.takeDamage(20);
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-	
-	return 0;
+	pierre.attack("Bastien"); //Attack not possible because Pierre is dead.
+
+	bastien.guardGate();
 }

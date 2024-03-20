@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 00:03:02 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/20 18:04:09 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:05:45 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,88 @@ int Fixed::toInt( void ) const {
     return this->_fixed_value >> _frac_bits;
 }
 
+bool Fixed::operator>( const Fixed &fixed ) {
+	return (this->getRawBits() > fixed.getRawBits());
+}
+
+bool Fixed::operator>=( const Fixed &fixed ) {
+	return (this->getRawBits() >= fixed.getRawBits());
+}
+
+bool Fixed::operator<( const Fixed &fixed ) {
+	return (this->getRawBits() < fixed.getRawBits());
+}
+
+bool Fixed::operator<=( const Fixed &fixed ) {
+	return (this->getRawBits() <= fixed.getRawBits());
+}
+
+bool Fixed::operator==( const Fixed &fixed ) {
+	return (this->getRawBits() == fixed.getRawBits());
+}
+
+bool Fixed::operator!=( const Fixed &fixed ) {
+	return (this->getRawBits() != fixed.getRawBits());
+}
+
+Fixed   Fixed::operator+( const Fixed &fixed ) const {
+	return Fixed( this->toFloat() + fixed.toFloat() );
+}
+
+Fixed   Fixed::operator-( const Fixed &fixed ) const {
+	return Fixed( this->toFloat() - fixed.toFloat() );
+}
+
+Fixed   Fixed::operator*( const Fixed &fixed ) const {
+	return Fixed( this->toFloat() * fixed.toFloat() );
+}
+
+Fixed   Fixed::operator/( const Fixed &fixed ) const {
+	return Fixed( this->toFloat() / fixed.toFloat() );
+}
+
+Fixed	&Fixed::operator++( void ) {
+	++this->_fixed_value;
+	return *this;
+}
+
+Fixed   Fixed::operator++( int ) { //post increment
+	Fixed temp( *this );
+	temp._fixed_value = this->_fixed_value++;
+	return temp;
+}
+
+Fixed	&Fixed::operator--( void ) {
+	--this->_fixed_value;
+	return *this;
+}
+
+Fixed   Fixed::operator--( int ) { //post decrement
+	Fixed temp( *this );
+	temp._fixed_value = this->_fixed_value--;
+	return temp;
+}
+
+Fixed 		&Fixed::min( Fixed &a, Fixed &b ) {
+	if ( a.getRawBits() < b.getRawBits() )
+		return a;
+	return b;
+}
+
+const Fixed	&Fixed::min( const Fixed &a, const Fixed &b ) {
+	if ( a.getRawBits() < b.getRawBits() )
+		return a;
+	return b;
+}
+
+Fixed 		&Fixed::max( Fixed &a, Fixed &b ) {
+	if ( a.getRawBits() > b.getRawBits() )
+		return a;
+	return b;
+}
+
+const Fixed	&Fixed::max( const Fixed &a, const Fixed &b ) {
+	if ( a.getRawBits() > b.getRawBits() )
+		return a;
+	return b;
+}
