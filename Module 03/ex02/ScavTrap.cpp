@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:58:35 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/20 22:18:16 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/03/21 00:13:32 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void ScavTrap::attack(const std::string& target) {
 			std::cout << "ScavTrap " << this->name << " has no energy to attack." << std::endl;
 		}	
 	} else {
-		
+		std::cout << this->name << " is dead." << std::endl;
 	}
 }
 

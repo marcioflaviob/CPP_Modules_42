@@ -6,23 +6,23 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:17:39 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/20 22:19:29 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/03/20 23:54:36 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main (void) {
 	ClapTrap pierre("Pierre");
-	ScavTrap bastien("Bastien");
+	FragTrap jean("Jean");
 
-	pierre.attack("Bastien");
-	bastien.takeDamage(0);
-	bastien.attack("Pierre");
+	pierre.attack("Jean");
+	jean.takeDamage(0);
+	jean.attack("Pierre");
 	pierre.takeDamage(20);
 
-	pierre.attack("Bastien"); //Attack not possible because Pierre is dead.
+	pierre.attack("Jean"); //Attack not possible because Pierre is dead.
 
-	bastien.guardGate();
+	jean.highFivesGuys();
 }
