@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 13:04:51 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/21 15:04:40 by mbrandao         ###   ########.fr       */
+/*   Created: 2024/03/21 19:20:44 by mbrandao          #+#    #+#             */
+/*   Updated: 2024/03/21 19:30:28 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#include "Ice.hpp"
+#include "AMateria.hpp"
 
-# include <string>
-# include <iostream>
-
-class Animal {
-
-	protected:
-		std::string type;
-
-	public:
-		Animal();
-		Animal( const Animal &animal );
-		virtual ~Animal();
-		Animal & operator=( const Animal &animal );
-
-		std::string getType() const;
-		virtual void makeSound(void) const;
+Ice::Ice() : AMateria("ice") {
 	
-	
-};
+}
 
-#endif
+Ice::Ice(Ice const & copy) {
+	*this = copy;
+}
+
+Ice::~Ice() {
+	
+}
+
+virtual AMateria * Ice::clone() const {
+	return (new Ice(*this));
+}
+
+virtual void Ice::use(ICharacter & target) {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}

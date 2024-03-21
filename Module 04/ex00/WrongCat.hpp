@@ -6,17 +6,18 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 13:48:10 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/21 13:48:57 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:22:33 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WRONGCAT_H
 # define WRONGCAT_H
 
+# include "WrongAnimal.hpp"
 # include <string>
 # include <iostream>
 
-class WrongCat {
+class WrongCat : public WrongAnimal {
 
 	protected:
 		std::string type;

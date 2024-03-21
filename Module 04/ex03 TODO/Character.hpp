@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 13:04:51 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/21 15:04:40 by mbrandao         ###   ########.fr       */
+/*   Created: 2024/03/21 18:36:27 by mbrandao          #+#    #+#             */
+/*   Updated: 2024/03/21 18:37:31 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef CHARACTER_H
+# define CHARACTER_H
 
-# include <string>
-# include <iostream>
+# include "ICharacter.hpp"
 
-class Animal {
-
-	protected:
-		std::string type;
-
-	public:
-		Animal();
-		Animal( const Animal &animal );
-		virtual ~Animal();
-		Animal & operator=( const Animal &animal );
-
-		std::string getType() const;
-		virtual void makeSound(void) const;
-	
+class Character : public ICharacter {
 	
 };
 

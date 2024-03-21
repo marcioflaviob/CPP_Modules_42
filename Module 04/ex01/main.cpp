@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 13:04:51 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/21 15:04:40 by mbrandao         ###   ########.fr       */
+/*   Created: 2024/03/21 13:27:30 by mbrandao          #+#    #+#             */
+/*   Updated: 2024/03/21 18:14:11 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "Animal.hpp"
 
-# include <string>
-# include <iostream>
+int main()
+{
+	const Animal * animals[10];
 
-class Animal {
+	int i = 0;
 
-	protected:
-		std::string type;
-
-	public:
-		Animal();
-		Animal( const Animal &animal );
-		virtual ~Animal();
-		Animal & operator=( const Animal &animal );
-
-		std::string getType() const;
-		virtual void makeSound(void) const;
+	while (i < 5)
+		animals[i++] = new Dog();
+	while (i < 10)
+		animals[i++] = new Cat();
 	
-	
-};
+	std::cout << std::endl;
+	std::cout << "End of array. Starting deletions..." << std::endl;
+	std::cout << std::endl;
 
-#endif
+	i = 0;
+	while (i < 10)
+		delete animals[i++];
+	
+	return 0;
+}
