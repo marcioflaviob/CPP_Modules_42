@@ -1,71 +1,76 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 20:22:35 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/21 21:23:28 by mbrandao         ###   ########.fr       */
+/*   Created: 2024/03/22 21:25:41 by mbrandao          #+#    #+#             */
+/*   Updated: 2024/03/22 22:29:51 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form() : name("Unnamed"), grade_to_sign(150), grade_to_execute(150) {
+AForm::AForm() : name("Unnamed"), grade_to_sign(150), grade_to_execute(150) {
 	this->isSigned = false;
 }
 
-Form::Form(std::string name, int grade_to_sign, int grade_to_execute)
+AForm::AForm(std::string name, int grade_to_sign, int grade_to_execute)
 	: name(name), grade_to_sign(grade_to_sign), grade_to_execute(grade_to_execute) {
 	this->isSigned = false;
 	if (grade_to_sign < 1 || grade_to_execute < 1)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	if (grade_to_sign > 150 || grade_to_execute > 150)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 }
 
-Form::Form( const Form & copy )
+AForm::AForm( const AForm & copy )
 	: name(copy.name), grade_to_sign(copy.grade_to_sign), grade_to_execute(copy.grade_to_execute) {
 	this->isSigned = copy.isSigned;
 }
 
-Form::~Form() {
+AForm::~AForm() {
 	
 }
 
-std::string Form::getName() const {
+std::string AForm::getName() const {
 	return (this->name);
 }
 
-int Form::getSignGrade() const {
+int AForm::getSignGrade() const {
 	return (this->grade_to_sign);
 }
-int Form::getExecGrade() const {
+int AForm::getExecGrade() const {
 	return (this->grade_to_execute);
 }
 
-bool Form::getIsSigned() const {
+bool AForm::getIsSigned() const {
 	return (this->isSigned);
 }
 
-void Form::beSigned(Bureaucrat bc) {
+void AForm::beSigned(Bureaucrat bc) {
 	if (bc.getGrade() > this->grade_to_sign)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	if (this->isSigned == true)
-		throw Form::AlreadySigned();
+		throw AForm::AlreadySigned();
 	this->isSigned = true;
 }
 
-Form & Form::operator=(const Form & copy) {
+AForm & AForm::operator=(const AForm & copy) {
     if (this != &copy) {
         this->isSigned = copy.getIsSigned();
     }
     return *this;
 }
 
-std::ostream & operator<<(std::ostream &stream, Form &form) {
-	stream << "Form " << form.getName() << " is " << (form.getIsSigned() ? "signed" : "unsigned") << " and requires a grade "
+void AForm::execute(Bureaucrat const & bc) const {
+	(void) bc;
+	std::cout << "Form undefined." << std::endl;
+}
+
+std::ostream & operator<<(std::ostream &stream, AForm &form) {
+	stream << "AForm " << form.getName() << " is " << (form.getIsSigned() ? "signed" : "unsigned") << " and requires a grade "
 		<< form.getSignGrade() << " to sign and a grade "<< form.getExecGrade() << " to execute.";
 	return stream;
 }
