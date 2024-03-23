@@ -6,12 +6,13 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 20:05:13 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/23 14:12:54 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/03/23 14:13:44 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "Form.hpp"
+#include "Intern.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -21,59 +22,74 @@
 
 int	main () {
 	
-	ShrubberyCreationForm form("target1");
+	Intern ryan;
+	Form *form;
+	form = ryan.makeForm("shrubbery creation", "target");
 	Bureaucrat pierre("Pierre", 138);
 
-	pierre.executeForm(form); //Should fail because form not signed
+	pierre.executeForm(*form); //Should fail because form not signed
 
-	pierre.signForm(form);
-	pierre.signForm(form); // Should fail because it's already signed.
+	pierre.signForm(*form);
+	pierre.signForm(*form); // Should fail because it's already signed.
 
-	pierre.executeForm(form); //Should fail because grade too low.
+	pierre.executeForm(*form); //Should fail because grade too low.
 	
 	pierre.incrementGrade();
 
-	pierre.executeForm(form);
+	pierre.executeForm(*form);
 
 	std::cout << "-----------------------------------" << std::endl;
 	// -------------------------------------------------------------------
 	std::cout << "-----------------------------------" << std::endl;
 
-	RobotomyRequestForm form2("target2");
+	Form *form2;
+	form2 = ryan.makeForm("robotomy request", "target2");
 	Bureaucrat antoine("Antoine", 46);
 
-	antoine.executeForm(form2); //Should fail because form not signed
+	antoine.executeForm(*form2); //Should fail because form not signed
 	
-	antoine.signForm(form2);
+	antoine.signForm(*form2);
 
-	antoine.executeForm(form2); //Should fail because grade too low.
+	antoine.executeForm(*form2); //Should fail because grade too low.
 
 	antoine.incrementGrade();
 
-	antoine.executeForm(form2);
+	antoine.executeForm(*form2);
 	// sleep(1);
-	// antoine.executeForm(form2);
+	// antoine.executeForm(*form2);
 	// sleep(1);
-	// antoine.executeForm(form2);
+	// antoine.executeForm(*form2);
 	// sleep(1);
-	// antoine.executeForm(form2);
+	// antoine.executeForm(*form2);
 	// sleep(1);
 
 	std::cout << "-----------------------------------" << std::endl;
 	// -------------------------------------------------------------------
 	std::cout << "-----------------------------------" << std::endl;
 
-	PresidentialPardonForm form3("target3");
+	Form *form3;
+	form3 = ryan.makeForm("presidential pardon", "target3");
 	Bureaucrat paul("Paul", 6);
 
-	paul.executeForm(form3); //Should fail because form not signed
+	paul.executeForm(*form3); //Should fail because form not signed
 
-	paul.signForm(form3);
+	paul.signForm(*form3);
 
-	paul.executeForm(form3); //Should fail because grade too low.
+	paul.executeForm(*form3); //Should fail because grade too low.
 
 	paul.incrementGrade();
 
-	paul.executeForm(form3);
+	paul.executeForm(*form3);
+	
+	std::cout << "-----------------------------------" << std::endl;
+	// -------------------------------------------------------------------
+	std::cout << "-----------------------------------" << std::endl;
+
+	Form *form4;
+	form4 = ryan.makeForm("undefined form", "target4"); //Should fail because form not found.
+
+	delete form;
+	delete form2;
+	delete form3;
 	
 }
