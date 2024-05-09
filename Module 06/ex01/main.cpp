@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 21:11:25 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/04/27 20:25:05 by mbrandao         ###   ########.fr       */
+/*   Created: 2024/03/24 21:02:19 by mbrandao          #+#    #+#             */
+/*   Updated: 2024/03/24 21:06:58 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-# define CONTACT_H
+#include "Serializer.hpp"
 
-# include <string>
+int main()
+{
+	Data data(15678, "Hello World");
+	Data* ptr = &data;
 
-class Contact {
+	uintptr_t raw = Serializer::serialize(ptr);
+	Data* ptr2 = Serializer::deserialize(raw);
 
-public:
+	std::cout << "Value: " << ptr2->value << std::endl;
+	std::cout << "String: " << ptr2->str << std::endl;
 
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
-
-	Contact(std::string first_name, std::string last_name, std::string nickname, std::string phone_number, std::string darkest_secret);
-	Contact(void);
-	~Contact(void);
-	bool isEmpty();
-
-};
-
-#endif
+	return 0;
+}

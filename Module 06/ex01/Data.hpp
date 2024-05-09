@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 21:11:25 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/04/27 20:25:05 by mbrandao         ###   ########.fr       */
+/*   Created: 2024/03/24 20:53:47 by mbrandao          #+#    #+#             */
+/*   Updated: 2024/03/24 21:00:55 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-# define CONTACT_H
+#ifndef DATA_H
+# define DATA_H
 
+# include <iostream>
 # include <string>
 
-class Contact {
+class Data
+{
+	public:
 
-public:
-
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
-
-	Contact(std::string first_name, std::string last_name, std::string nickname, std::string phone_number, std::string darkest_secret);
-	Contact(void);
-	~Contact(void);
-	bool isEmpty();
-
+		int value;
+		std::string str;
+	
+		Data();
+		Data(int value, std::string str);
+		Data(const Data &copy);
+		~Data();
+		Data & operator=(const Data &assign);
+		
+	private:
+		
 };
 
 #endif

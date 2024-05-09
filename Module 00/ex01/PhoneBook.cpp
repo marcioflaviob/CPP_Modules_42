@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:28:06 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/18 15:21:58 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/04/27 20:46:14 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ PhoneBook::~PhoneBook(void) {
 
 std::string PhoneBook::fix_string(std::string str) {
 	if (str.length() < 10)
-		str.resize(10, ' ');
+		str.insert(0, 10 - str.length(), ' ');
 	else if (str.length() > 10) {
 		str.resize(9);
 		str = str + '.';
@@ -40,6 +40,7 @@ void PhoneBook::add(void) {
 	std::string last_name;
 	std::string nickname;
 	std::string phone_number;
+	std::string darkest_secret;
 	
 	std::cout << "* ADDING A NEW CONTACT *" << std::endl;
 	std::cout << "Inform the first name: " << std::endl;
@@ -85,9 +86,20 @@ void PhoneBook::add(void) {
 		std::cout << ">>";
 		std::getline(std::cin, phone_number);
 	}
+
+	std::cout << "Inform the darkest secret: " << std::endl;
+	std::cout << ">>";
+	std::getline(std::cin, darkest_secret);
+	while (darkest_secret.empty()) {
+		std::cout << "Input is empty." << std::endl;
+		std::cout << std::endl;
+		std::cout << "Inform the darkest secret: " << std::endl;
+		std::cout << ">>";
+		std::getline(std::cin, darkest_secret);
+	}
 	std::cout << std::endl;
 
-	Contact contact(first_name, last_name, nickname, phone_number);
+	Contact contact(first_name, last_name, nickname, phone_number, darkest_secret);
 	
 	int i = 0;
 	while (i < 8 && !this->contacts[i].isEmpty())
@@ -150,6 +162,7 @@ void PhoneBook::search(void) {
 		std::cout << "Last Name: " << this->contacts[input].last_name << std::endl;
 		std::cout << "Nickname: " << this->contacts[input].nickname << std::endl;
 		std::cout << "Phone Number: " << this->contacts[input].phone_number << std::endl;
+		std::cout << "Darkest Secret: " << this->contacts[input].darkest_secret << std::endl;
 		std::cout << std::endl;
 	}
 	

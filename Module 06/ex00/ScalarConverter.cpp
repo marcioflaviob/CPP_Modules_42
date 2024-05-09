@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 15:49:22 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/24 19:57:06 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/03/24 20:14:05 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,5 +172,4 @@ void ScalarConverter::convert(const std::string & literal) {
 		std::cout << toFloat(literal) << ".0f" << std::endl;
 	else
 		std::cout << toFloat(literal) << std::endl;
-	
 }
