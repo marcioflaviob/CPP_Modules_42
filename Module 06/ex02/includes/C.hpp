@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/27 23:27:13 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/04/27 23:27:57 by mbrandao         ###   ########.fr       */
+/*   Created: 2024/04/27 23:13:26 by mbrandao          #+#    #+#             */
+/*   Updated: 2024/05/10 13:51:21 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#ifndef C_H
+# define C_H
 
-Base * generate(void) {
-	
-}
+# include "Base.hpp"
 
-void identify(Base* p) {
+class C : public Base
+{
 	
-}
+};
 
-void identify(Base& p) {
-	
-}
+#endif
