@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 16:26:22 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/05/10 17:50:12 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/05/19 19:39:26 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,23 @@
 
 # include <iostream>
 # include <string>
+# include <cstdlib>
 
 template< typename T >
 class Array {
 
 	public:
-		Array(): size(0) {
+		Array(): size_val(0) {
 			std::cout << "Constructor called, empty array created." << std::endl;
-			this->array = new T[this.size];
+			this->array = new T[this->size_val];
 		};
 		
-		Array( unsigned int a ): size(a) {
+		Array( unsigned int a ): size_val(a) {
 			std::cout << "Constructor called, array created." << std::endl;
-			this->array = new T[this.size];
+			this->array = new T[this->size_val];
 		};
 		
-		Array(const Array &src): size(src.size()) {
+		Array(const Array &src): size_val(src.size()) {
 			std::cout << "Copy Constructor called" << std::endl;
 			this->array = NULL;
 			*this = src;
@@ -47,8 +48,8 @@ class Array {
 			if (this->array != NULL)
 				delete [] this->array;
 			if (src.size() != 0) {
-				this->size = src.size();
-				this->array = new T[this->size];
+				this->size_val = src.size();
+				this->array = new T[this->size_val];
 				for (unsigned int i = 0; i < this->size(); i++)
 					this->array[i] = src.array[i];
 			}
@@ -57,7 +58,7 @@ class Array {
 
 		T &operator[]( unsigned int index )
 		{
-			if (index >= this->size || this->array == NULL) {
+			if (index >= this->size_val || this->array == NULL) {
 				throw Array<T>::OutOfBoundsException();
 			}
 			return (this->array[index]);
@@ -71,12 +72,12 @@ class Array {
 		};
 
 		unsigned int size() const {
-			return (this->size);
+			return (this->size_val);
 		}
 
 	private:
 		T	*array;
-		unsigned int size;
+		unsigned int size_val;
 	
 };
 
