@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:28:06 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/04/27 20:46:14 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/07/04 23:12:35 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,8 @@ void PhoneBook::search(void) {
 		std::stringstream ss;
 		ss << i;
 		index = ss.str();
-		std::cout << this->fix_string(index) << " | " << this->fix_string(this->contacts[i].first_name) << " | "
-			<< this->fix_string(this->contacts[i].last_name) << " | " << this->fix_string(this->contacts[i].nickname) << std::endl;
+		std::cout << this->fix_string(index) << " | " << this->fix_string(this->contacts[i].get_first_name()) << " | "
+			<< this->fix_string(this->contacts[i].get_last_name()) << " | " << this->fix_string(this->contacts[i].get_nickname()) << std::endl;
 		i++;
 	}
 	std::cout << std::endl;
@@ -158,11 +158,11 @@ void PhoneBook::search(void) {
 		std::cout << std::endl;
 		std::cout << "* CONTACT INFO *" << std::endl;
 		std::cout << std::endl;
-		std::cout << "First Name: " << this->contacts[input].first_name << std::endl;
-		std::cout << "Last Name: " << this->contacts[input].last_name << std::endl;
-		std::cout << "Nickname: " << this->contacts[input].nickname << std::endl;
-		std::cout << "Phone Number: " << this->contacts[input].phone_number << std::endl;
-		std::cout << "Darkest Secret: " << this->contacts[input].darkest_secret << std::endl;
+		std::cout << "First Name: " << this->contacts[input].get_first_name() << std::endl;
+		std::cout << "Last Name: " << this->contacts[input].get_last_name() << std::endl;
+		std::cout << "Nickname: " << this->contacts[input].get_nickname() << std::endl;
+		std::cout << "Phone Number: " << this->contacts[input].get_phone_number() << std::endl;
+		std::cout << "Darkest Secret: " << this->contacts[input].get_darkest_secret() << std::endl;
 		std::cout << std::endl;
 	}
 	
