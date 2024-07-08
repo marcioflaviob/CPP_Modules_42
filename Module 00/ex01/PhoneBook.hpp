@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:27:20 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/19 16:58:52 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/07/08 12:38:01 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "Contact.hpp"
 # include <string>
+# include <limits>
+# include <cstdlib>
 
 class PhoneBook {
 

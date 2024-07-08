@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:28:06 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/07/04 23:12:35 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/07/08 12:54:58 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,59 +43,64 @@ void PhoneBook::add(void) {
 	std::string darkest_secret;
 	
 	std::cout << "* ADDING A NEW CONTACT *" << std::endl;
-	std::cout << "Inform the first name: " << std::endl;
-	std::cout << ">>";
-	std::getline(std::cin, first_name);
 	while (first_name.empty()) {
-		std::cout << "Input is empty." << std::endl;
-		std::cout << std::endl;
 		std::cout << "Inform the first name: " << std::endl;
 		std::cout << ">>";
-		std::getline(std::cin, first_name);
+		if (!std::getline(std::cin, first_name)) {
+			exit(0);
+		}
+		if (first_name.empty()) {
+			std::cout << "Input is empty." << std::endl;
+			std::cout << std::endl;
+		}
 	}
 
-	std::cout << "Inform the last name: " << std::endl;
-	std::cout << ">>";
-	std::getline(std::cin, last_name);
 	while (last_name.empty()) {
-		std::cout << "Input is empty." << std::endl;
-		std::cout << std::endl;
 		std::cout << "Inform the last name: " << std::endl;
 		std::cout << ">>";
-		std::getline(std::cin, last_name);
+		if (!std::getline(std::cin, last_name)) {
+			exit(0);
+		}
+		if (last_name.empty()) {
+			std::cout << "Input is empty." << std::endl;
+			std::cout << std::endl;
+		}
 	}
 	
-	std::cout << "Inform the nickname: " << std::endl;
-	std::cout << ">>";
-	std::getline(std::cin, nickname);
 	while (nickname.empty()) {
-		std::cout << "Input is empty." << std::endl;
-		std::cout << std::endl;
 		std::cout << "Inform the nickname: " << std::endl;
 		std::cout << ">>";
-		std::getline(std::cin, nickname);
+		if (!std::getline(std::cin, nickname)) {
+			exit(0);
+		}
+		if (nickname.empty()) {
+			std::cout << "Input is empty." << std::endl;
+			std::cout << std::endl;
+		}
 	}
 	
-	std::cout << "Inform the phone number: " << std::endl;
-	std::cout << ">>";
-	std::getline(std::cin, phone_number);
 	while (phone_number.empty()) {
-		std::cout << "Input is empty." << std::endl;
-		std::cout << std::endl;
 		std::cout << "Inform the phone number: " << std::endl;
 		std::cout << ">>";
-		std::getline(std::cin, phone_number);
+		if (!std::getline(std::cin, phone_number)) {
+			exit(0);
+		}
+		if (phone_number.empty()) {
+			std::cout << "Input is empty." << std::endl;
+			std::cout << std::endl;
+		}
 	}
 
-	std::cout << "Inform the darkest secret: " << std::endl;
-	std::cout << ">>";
-	std::getline(std::cin, darkest_secret);
 	while (darkest_secret.empty()) {
-		std::cout << "Input is empty." << std::endl;
-		std::cout << std::endl;
 		std::cout << "Inform the darkest secret: " << std::endl;
 		std::cout << ">>";
-		std::getline(std::cin, darkest_secret);
+		if (!std::getline(std::cin, darkest_secret)) {
+			exit(0);
+		}
+		if (darkest_secret.empty()) {
+			std::cout << "Input is empty." << std::endl;
+			std::cout << std::endl;
+		}
 	}
 	std::cout << std::endl;
 
@@ -140,20 +145,20 @@ void PhoneBook::search(void) {
 		std::cout << std::endl;
 	}
 	else {
-		int	input;
-		std::cout << "Inform an index to see the phone number: " << std::endl;
-		std::cout << ">>";
-		std::getline(std::cin, index);
-		std::stringstream ss(index);
-		ss >> input;
+		int	input = -1;
+		
 		while (index.empty() || (input < 0) || (input > (i - 1))) {
-			std::cout << "Input is empty or invalid." << std::endl;
-			std::cout << std::endl;
-			std::cout << "Inform an index: " << std::endl;
+			std::cout << "Inform an index to see the phone number: " << std::endl;
 			std::cout << ">>";
-			std::getline(std::cin, index);
+			if (!std::getline(std::cin, index)) {
+				exit(0);
+			}
 			std::stringstream ss(index);
 			ss >> input;
+			if (index.empty()) {
+				std::cout << "Input is empty or invalid." << std::endl;
+				std::cout << std::endl;
+			}
 		}
 		std::cout << std::endl;
 		std::cout << "* CONTACT INFO *" << std::endl;
@@ -167,5 +172,7 @@ void PhoneBook::search(void) {
 	}
 	
 	std::cout << "* PRESS ENTER TO GO BACK TO MENU *" << std::endl;
-	std::getline(std::cin, index);
+	if (!std::getline(std::cin, index)) {
+		exit(0);
+	}
 }
