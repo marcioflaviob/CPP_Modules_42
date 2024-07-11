@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 22:30:00 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/07/10 23:08:35 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:27:49 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ Fixed crossProduct(const Point& p1, const Point& p2, const Point& p3) {
 }
 
 bool bsp(const Point a, const Point b, const Point c, const Point point) {
+
+    if (point == a || point == b || point == c)
+        return false;
 
     Fixed d1 = crossProduct(point, a, b);
     Fixed d2 = crossProduct(point, b, c);

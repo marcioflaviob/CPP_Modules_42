@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 22:22:14 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/07/10 22:36:17 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:29:50 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ Point & Point::operator=(Point const & src) {
 		const_cast<Fixed &>(this->y) = src.y;
 	}
 	return (*this);
+}
+
+bool Point::operator==(const Point &rhs) const {
+    return this->x == rhs.x && this->y == rhs.y;
 }
 
 const Fixed & Point::getX(void) const {

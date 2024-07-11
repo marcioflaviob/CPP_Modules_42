@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 00:03:02 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/20 21:05:45 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:33:43 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,27 +65,27 @@ int Fixed::toInt( void ) const {
     return this->_fixed_value >> _frac_bits;
 }
 
-bool Fixed::operator>( const Fixed &fixed ) {
+bool Fixed::operator>( const Fixed &fixed ) const {
 	return (this->getRawBits() > fixed.getRawBits());
 }
 
-bool Fixed::operator>=( const Fixed &fixed ) {
+bool Fixed::operator>=( const Fixed &fixed ) const {
 	return (this->getRawBits() >= fixed.getRawBits());
 }
 
-bool Fixed::operator<( const Fixed &fixed ) {
+bool Fixed::operator<( const Fixed &fixed ) const {
 	return (this->getRawBits() < fixed.getRawBits());
 }
 
-bool Fixed::operator<=( const Fixed &fixed ) {
+bool Fixed::operator<=( const Fixed &fixed ) const {
 	return (this->getRawBits() <= fixed.getRawBits());
 }
 
-bool Fixed::operator==( const Fixed &fixed ) {
+bool Fixed::operator==( const Fixed &fixed ) const {
 	return (this->getRawBits() == fixed.getRawBits());
 }
 
-bool Fixed::operator!=( const Fixed &fixed ) {
+bool Fixed::operator!=( const Fixed &fixed ) const {
 	return (this->getRawBits() != fixed.getRawBits());
 }
 

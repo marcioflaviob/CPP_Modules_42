@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 22:07:29 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/07/10 22:27:25 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:29:36 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ public:
 	~Point(void);
 
 	Point & operator=(Point const & src);
+	bool operator==(const Point &rhs) const;
 
 	const Fixed & getX(void) const;
 	const Fixed & getY(void) const;

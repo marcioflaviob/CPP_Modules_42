@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 00:03:09 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/20 20:46:19 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:33:25 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ public:
 	void setRawBits( int const raw );
 	
 	
-	bool operator>( const Fixed &fixed );
-	bool operator>=( const Fixed &fixed );
-	bool operator<( const Fixed &fixed );
-	bool operator<=( const Fixed &fixed );
-	bool operator==( const Fixed &fixed );
-	bool operator!=( const Fixed &fixed );
+	bool operator>( const Fixed &fixed ) const;
+	bool operator>=( const Fixed &fixed ) const;
+	bool operator<( const Fixed &fixed ) const;
+	bool operator<=( const Fixed &fixed ) const;
+	bool operator==( const Fixed &fixed ) const;
+	bool operator!=( const Fixed &fixed ) const;
 
 	Fixed   operator+( const Fixed &fixed ) const;
     Fixed   operator-( const Fixed &fixed ) const;
