@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 00:01:35 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/21 00:31:49 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/07/12 11:56:05 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <string>
 # include <iostream>
 
-class DiamondTrap : public ScavTrap, public FragTrap {
+class DiamondTrap : public virtual ScavTrap, public virtual FragTrap {
 	
 public:
 	DiamondTrap();
