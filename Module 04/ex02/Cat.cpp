@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 13:18:41 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/21 18:12:02 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/07/14 17:23:32 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,19 @@ Cat::Cat() {
 }
 
 Cat::Cat( const Cat &cat ) {
-	this->brain = cat.brain;
+	this->brain = new Brain();
+	for (int i = 0; i < 100; i++)
+		this->brain->ideas[i] = cat.brain->ideas[i];
 	std::cout << "🐱 Cat copy constructor called." << std::endl;
+}
+
+Cat & Cat::operator=( const Cat &cat ) {
+	if (this == &cat)
+		return (*this);
+	for (int i = 0; i < 100; i++)
+		this->brain->ideas[i] = cat.brain->ideas[i];
+	std::cout << "🐱 Cat assignation operator called." << std::endl;
+	return (*this);
 }
 
 Cat::~Cat(){

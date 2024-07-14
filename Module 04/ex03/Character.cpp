@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 23:11:08 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/07/13 00:49:07 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/07/14 17:26:50 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,32 @@ Character::Character(std::string name) : name(name) {
 
 Character::Character(const Character &c) {
 	std::cout << "Character copy constructor called" << std::endl;
+	for (int i = 0; i < 4; i++) {
+		if (inventory[i])
+			delete inventory[i];
+		inventory[i] = NULL;
+	}
 	if (this != &c) {
 		this->name = c.name;
 		for (int i = 0; i < 4; i++) {
-			this->inventory[i] = c.inventory[i];
+			if (c.inventory[i] != NULL)
+				this->inventory[i] = c.inventory[i]->clone();
+			else
+				this->inventory[i] = NULL;
 		}
 	}
 }
 
 Character & Character::operator=(const Character &c) {
+	for (int i = 0; i < 4; i++) {
+		if (inventory[i])
+			delete inventory[i];
+		inventory[i] = NULL;
+	}
 	if (this != &c) {
 		this->name = c.name;
 		for (int i = 0; i < 4; i++) {
-			this->inventory[i] = c.inventory[i];
+			this->inventory[i] = c.inventory[i]->clone();
 		}
 	}	
 	return (*this);

@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 13:23:53 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/21 18:12:10 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/07/14 17:24:26 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,19 @@ Dog::Dog() {
 }
 
 Dog::Dog( const Dog &dog ) {
-	this->brain = dog.brain;
+	this->brain = new Brain();
+	for (int i = 0; i < 100; i++)
+		this->brain->ideas[i] = dog.brain->ideas[i];
 	std::cout << "🐶 Dog copy constructor called." << std::endl;
+}
+
+Dog & Dog::operator=( const Dog &dog ) {
+	if (this == &dog)
+		return (*this);
+	for (int i = 0; i < 100; i++)
+		this->brain->ideas[i] = dog.brain->ideas[i];
+	std::cout << "🐶 Dog assignation operator called." << std::endl;
+	return (*this);
 }
 
 Dog::~Dog(){

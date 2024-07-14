@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 13:16:41 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/03/21 17:42:50 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/07/14 17:22:23 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Cat : public Animal {
 		Cat();
 		Cat( const Cat &cat );
 		~Cat();
+		Cat & operator=( const Cat &cat );
 	
 		void makeSound(void) const;
 		
