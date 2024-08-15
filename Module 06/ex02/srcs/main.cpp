@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 23:27:13 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/05/10 13:57:48 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/08/15 17:39:37 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "../includes/A.hpp"
 #include "../includes/B.hpp"
 #include "../includes/C.hpp"
+#include <cstdlib>
+#include <cstdio>
 
 
 Base * generate(void) {
@@ -45,21 +47,18 @@ void identify(Base* p) {
 }
 
 void identify(Base& p) {
-	try {
-        (void)dynamic_cast<A&>(p);
-        std::cout << "The type is A" << std::endl;
-    } catch (std::bad_cast&) {
-        try {
-            (void)dynamic_cast<B&>(p);
+    try {
+        if (dynamic_cast<A*>(&p) != NULL) {
+            std::cout << "The type is A" << std::endl;
+        } else if (dynamic_cast<B*>(&p) != NULL) {
             std::cout << "The type is B" << std::endl;
-        } catch (std::bad_cast&) {
-            try {
-                (void)dynamic_cast<C&>(p);
-                std::cout << "The type is C" << std::endl;
-            } catch (std::bad_cast&) {
-                std::cout << "Unknown type" << std::endl;
-            }
+        } else if (dynamic_cast<C*>(&p) != NULL) {
+            std::cout << "The type is C" << std::endl;
+        } else {
+            std::cout << "Unknown type" << std::endl;
         }
+    } catch (...) {
+        std::cout << "Unknown type" << std::endl;
     }
 }
 
