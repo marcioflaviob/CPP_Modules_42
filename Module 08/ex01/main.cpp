@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 21:21:51 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/07/28 21:38:44 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/08/22 13:26:53 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,14 @@ int main()
 	}
 	
 	// try {
-	// 	Span sp2 = Span(4);
-	// 	std::vector<int> vec(5, 10);
+	// 	Span sp2 = Span(5);
+		
+	// 	std::vector<int> vec;
+	// 	vec.push_back(1);
+	// 	vec.push_back(3);
+	// 	vec.push_back(5);
+	// 	vec.push_back(7);
+	// 	vec.push_back(9);
 
 	// 	sp2.addNumber(vec.begin(), vec.end());
 	// 	std::cout << sp2.shortestSpan() << std::endl;

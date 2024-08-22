@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 12:33:43 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/07/30 12:48:06 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/08/22 13:11:24 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ int main()
 	
 	mstack.push(5);
 	mstack.push(17);
+	mstack.push(23);
+	mstack.push(55);
 	
-	std::cout << mstack.top() << std::endl;
+	std::cout << "Top is " << mstack.top() << std::endl;
 	
 	mstack.pop();
 
@@ -30,8 +32,17 @@ int main()
 	mstack.push(737);
 	mstack.push(0);
 	
+	std::cout << "Top is " << mstack.top() << std::endl;
+	
+	mstack.pop();
+	mstack.pop();
+	
+	std::cout << "Top is " << mstack.top() << std::endl;
+	
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
+
+	std::cout << "All numbers" << std::endl;
 	
 	++it;
 	--it;
@@ -39,33 +50,22 @@ int main()
 		std::cout << *it << std::endl;
 		++it;
 	}
+
+	std::cout << "Copy constructor" << std::endl;
+
+	MutantStack<int> copy(mstack);
+
+	MutantStack<int>::iterator it2 = copy.begin();
+	MutantStack<int>::iterator ite2 = copy.end();
+
+	while (it2 != ite2) {
+		std::cout << *it2 << std::endl;
+		++it2;
+	}
+	
 	std::stack<int> s(mstack);
 
-    // std::list<int> list;
-    
-    // list.push_back(5);
-    // list.push_back(17);
-    
-    // std::cout << list.back() << std::endl;
-    
-    // list.pop_back();
-
-    // std::cout << list.size() << std::endl;
-    
-    // list.push_back(3);
-    // list.push_back(5);
-    // list.push_back(737);
-    // list.push_back(0);
-    
-    // std::list<int>::iterator it = list.begin();
-    // std::list<int>::iterator ite = list.end();
-    
-    // ++it;
-    // --it;
-    // while (it != ite) {
-    //     std::cout << *it << std::endl;
-    //     ++it;
-    // }
+	std::cout << "Top of stack is " << s.top() << std::endl;
 
     return 0;
 }
