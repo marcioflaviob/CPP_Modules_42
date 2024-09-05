@@ -6,10 +6,10 @@ RM			= rm -rf
 
 OBJDIR = .objFiles
 
-FILES		= main
+FILES		= main BitcoinExchange
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= MutantStack.hpp
+HEADER		= BitcoinExchange.hpp
 
 #Colors:
 GREEN		=	\e[92;5;118m

@@ -6,7 +6,7 @@
 /*   By: mbrandao <mbrandao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 14:33:28 by mbrandao          #+#    #+#             */
-/*   Updated: 2024/07/30 15:28:14 by mbrandao         ###   ########.fr       */
+/*   Updated: 2024/09/05 22:11:19 by mbrandao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class RPN {
 		class	InvalidArgument : public std::exception {
 		public:
 			virtual const char* what() const throw() {
-					return ("Invalid Argument.");
+					return ("Error");
 				};
 		};
 		
